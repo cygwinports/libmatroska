@@ -1,0 +1,95 @@
+libmatroska
+------------------------------------------
+Matroska is an extensible open standard Audio/Video container, based on 
+EBML (Extensible Binary Meta Language), a binary derivative of XML. 
+Matroska is usually found as .mkv files (matroska video) and .mka files 
+(matroska audio).
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  libebml0-0.7.7-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.24-2
+  binutils-20060817-1
+  cygport-0.2.11-1
+  gcc-core-3.4.4-3
+  gcc-g++-3.4.4-3
+  make-3.81-1
+
+Canonical website:
+  http://www.matroska.org/
+
+Canonical download:
+  http://dl.matroska.org/downloads/libmatroska/
+
+-------------------------------------------
+
+Build instructions:
+  unpack libmatroska-0.8.1-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./libmatroska-0.8.1-X.cygport all
+
+This will create:
+  /usr/src/libmatroska-0.8.1-X-src.tar.bz2
+  /usr/src/libmatroska-0.8.1-X.tar.bz2
+  /usr/src/libmatroska-devel-0.8.1-X.tar.bz2
+  /usr/src/libmatroska0-0.8.1-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(libmatroska)
+  /usr/share/doc/Cygwin/libmatroska-0.8.1.README
+  /usr/share/doc/libmatroska-0.8.1/ChangeLog
+  /usr/share/doc/libmatroska-0.8.1/LICENSE.LGPL
+
+(libmatroska0)
+  /usr/bin/cygmatroska-0.dll
+
+(libmatroska-devel)
+  /usr/include/matroska/FileKax.h
+  /usr/include/matroska/KaxAttached.h
+  /usr/include/matroska/KaxAttachments.h
+  /usr/include/matroska/KaxBlock.h
+  /usr/include/matroska/KaxBlockData.h
+  /usr/include/matroska/KaxChapters.h
+  /usr/include/matroska/KaxCluster.h
+  /usr/include/matroska/KaxClusterData.h
+  /usr/include/matroska/KaxConfig.h
+  /usr/include/matroska/KaxContentEncoding.h
+  /usr/include/matroska/KaxContexts.h
+  /usr/include/matroska/KaxCues.h
+  /usr/include/matroska/KaxCuesData.h
+  /usr/include/matroska/KaxInfo.h
+  /usr/include/matroska/KaxInfoData.h
+  /usr/include/matroska/KaxSeekHead.h
+  /usr/include/matroska/KaxSegment.h
+  /usr/include/matroska/KaxTag.h
+  /usr/include/matroska/KaxTagMulti.h
+  /usr/include/matroska/KaxTags.h
+  /usr/include/matroska/KaxTrackAudio.h
+  /usr/include/matroska/KaxTrackEntryData.h
+  /usr/include/matroska/KaxTrackVideo.h
+  /usr/include/matroska/KaxTracks.h
+  /usr/include/matroska/KaxTypes.h
+  /usr/include/matroska/KaxVersion.h
+  /usr/include/matroska/c/libmatroska.h
+  /usr/include/matroska/c/libmatroska_t.h
+  /usr/lib/libmatroska.a
+  /usr/lib/libmatroska.dll.a
+
+------------------
+
+Port Notes:
+
+----- version 0.8.1-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
