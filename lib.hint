@@ -1,5 +1,5 @@
 category: Audio Video
-requires: cygwin libebml0
+requires: libebml0
 external-source: libmatroska
 sdesc: "Matroska audio/video container library (runtime)"
 ldesc: "Matroska is an extensible open standard Audio/Video container, 
