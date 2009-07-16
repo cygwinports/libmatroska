@@ -6,17 +6,18 @@ Matroska is usually found as .mkv files (matroska video) and .mka files
 (matroska audio).
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  libebml0-0.7.7-1
+  cygwin-1.7.0-51
+  libgcc1-4.3.2-2
+  libebml0-0.7.8-1
+  libstdc++6-4.3.2-2
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-2
-  binutils-20060817-1
-  cygport-0.2.11-1
-  gcc-core-3.4.4-3
-  gcc-g++-3.4.4-3
-  make-3.81-1
+  binutils-2.19.51-1
+  cygport-0.9.7-1
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  libtool-2.2.7a-14
 
 Canonical website:
   http://www.matroska.org/
@@ -35,7 +36,6 @@ Build instructions:
 
 This will create:
   /usr/src/libmatroska-0.8.1-X-src.tar.bz2
-  /usr/src/libmatroska-0.8.1-X.tar.bz2
   /usr/src/libmatroska-devel-0.8.1-X.tar.bz2
   /usr/src/libmatroska0-0.8.1-X.tar.bz2
 
@@ -43,13 +43,10 @@ This will create:
 
 Files included in the binary packages:
 
-(libmatroska)
-  /usr/share/doc/Cygwin/libmatroska-0.8.1.README
-  /usr/share/doc/libmatroska-0.8.1/ChangeLog
-  /usr/share/doc/libmatroska-0.8.1/LICENSE.LGPL
-
 (libmatroska0)
   /usr/bin/cygmatroska-0.dll
+  /usr/share/doc/libmatroska/ChangeLog
+  /usr/share/doc/libmatroska/LICENSE.LGPL
 
 (libmatroska-devel)
   /usr/include/matroska/FileKax.h
@@ -87,8 +84,8 @@ Files included in the binary packages:
 
 Port Notes:
 
------ version 0.8.1-1 -----
-Initial release for Cygwin.
+----- version 0.8.1-10 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
