@@ -1,5 +1,5 @@
 category: Audio Video
-requires: libebml-devel libmatroska0
+requires: libebml-devel libmatroska2
 external-source: libmatroska
 sdesc: "Matroska audio/video container library (development)"
 ldesc: "Matroska is an extensible open standard Audio/Video container, 

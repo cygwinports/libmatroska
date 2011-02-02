@@ -2,9 +2,8 @@ DESCRIPTION="Matroska extensible Audio/Video container"
 HOMEPAGE="http://www.matroska.org/"
 SRC_URI="http://dl.matroska.org/downloads/${PN}/${P}.tar.bz2"
 
-PKG_NAMES="${PN} ${PN}0 ${PN}-devel"
-PKG_HINTS="setup lib devel"
-libmatroska0_CONTENTS="usr/bin/*-0.dll usr/share/doc/"
+PKG_NAMES="${PN}2 ${PN}-devel"
+libmatroska2_CONTENTS="usr/bin/*-2.dll usr/share/doc/"
 libmatroska_devel_CONTENTS='usr/include/ usr/lib/'
 
 src_compile() {
@@ -15,7 +14,7 @@ src_compile() {
 		libtool --mode=compile --tag=CXX ${CXX} ${CXXFLAGS} -I.. -c -o ${c%.cpp}.lo ${c} || error "Compile failed on ${c}"
 	done
 	libtool --mode=link --tag=CXX ${CXX} ${LDFLAGS} \
-		-rpath /usr/lib -no-undefined -version-info 0 \
+		-rpath /usr/lib -no-undefined -version-info 2 \
 		-o libmatroska.la *.lo -lebml || error "libmatroska link failed"
 }
 
