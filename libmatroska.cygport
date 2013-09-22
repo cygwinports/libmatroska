@@ -1,5 +1,5 @@
 NAME="libmatroska"
-VERSION=1.0.0
+VERSION=1.4.1
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Matroska audio/video container library"
@@ -9,32 +9,22 @@ Matroska is usually found as .mkv files (matroska video) and .mka files
 (matroska audio)."
 HOMEPAGE="http://www.matroska.org/"
 SRC_URI="http://dl.matroska.org/downloads/libmatroska/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.4.1-make-cygwin.patch"
 
-PKG_NAMES="${NAME}2 ${NAME}-devel"
-libmatroska2_CONTENTS="usr/bin/*-2.dll usr/share/doc/"
+PKG_NAMES="${NAME}6 ${NAME}-devel"
+libmatroska6_CONTENTS="usr/bin/*-6.dll usr/share/doc/"
+libmatroska_devel_REQUIRES="libebml-devel"
 libmatroska_devel_CONTENTS='usr/include/ usr/lib/'
 
 src_compile() {
 	lndirs
-	cd ${B}/src
-	for c in *.cpp
-	do
-		libtool --mode=compile --tag=CXX ${CXX} ${CXXFLAGS} -I.. -c -o ${c%.cpp}.lo ${c} || error "Compile failed on ${c}"
-	done
-	libtool --mode=link --tag=CXX ${CXX} ${LDFLAGS} \
-		-rpath /usr/lib -no-undefined -version-info 2 \
-		-o libmatroska.la *.lo -lebml || error "libmatroska link failed"
+	cd ${B}/make/linux
+	cygmake sharedlib
 }
 
 src_install() {
-	dolib ${B}/src/libmatroska.la
-	rm -f ${D}/usr/lib/libmatroska.la
-
-	insinto /usr/include/matroska
-	doins ${S}/matroska/*.h
-
-	insinto /usr/include/matroska/c
-	doins ${S}/matroska/c/*.h
+	cd ${B}/make/linux
+	cygmake install_headers install_sharedlib prefix=${D}/usr
 
 	dodoc ${S}/LICENSE.LGPL
 }

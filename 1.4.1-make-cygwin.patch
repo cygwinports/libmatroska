@@ -1,0 +1,45 @@
+--- origsrc/libmatroska-1.4.1/make/linux/Makefile	2013-09-17 12:15:34.000000000 -0500
++++ src/libmatroska-1.4.1/make/linux/Makefile	2013-09-22 11:06:22.335706500 -0500
+@@ -16,6 +16,7 @@ prefix=/boot/home/config
+ else
+ prefix=/usr/local
+ endif
++bindir=$(prefix)/bin
+ libdir=$(prefix)/lib
+ includedir=$(prefix)/include/matroska
+ 
+@@ -63,8 +64,8 @@ MUX_LIBS=-lmatroska -lebml $(LIBICONV)
+ 
+ # Names
+ LIBRARY=libmatroska.a
+-LIBRARY_SO=libmatroska.so
+-LIBRARY_SO_VER=libmatroska.so.6
++LIBRARY_SO=libmatroska.dll.a
++LIBRARY_SO_VER=cygmatroska-6.dll
+ 
+ # source-files
+ sources:=$(wildcard ${SRC_DIR}*$(EXTENSION))
+@@ -104,9 +105,7 @@ $(LIBRARY): $(objects)
+ 	$(RANLIB) $@
+ 
+ $(LIBRARY_SO): $(objects_so)
+-	$(CXX) -shared -Wl,-soname,$(LIBRARY_SO_VER) -o $(LIBRARY_SO_VER) $(objects_so) -lebml
+-	rm -f $(LIBRARY_SO)
+-	ln -s $(LIBRARY_SO_VER) $(LIBRARY_SO)
++	$(CXX) -shared -Wl,--out-implib,$(LIBRARY_SO) -o $(LIBRARY_SO_VER) $(objects_so) -lebml
+ 
+ clean:	cleantest
+ 	rm -f $(objects) $(objects_so)
+@@ -168,9 +167,10 @@ install_staticlib: $(LIBRARY)
+ 	$(INSTALL) $(INSTALL_OPTS_LIB) $(LIBRARY) $(DESTDIR)$(libdir)
+ 
+ install_sharedlib: $(LIBRARY_SO)
++	$(INSTALL) $(INSTALL_DIR_OPTS) -d $(DESTDIR)$(bindir)
+ 	$(INSTALL) $(INSTALL_DIR_OPTS) -d $(DESTDIR)$(libdir)
+-	$(INSTALL) $(INSTALL_OPTS_LIB) $(LIBRARY_SO_VER) $(DESTDIR)$(libdir)
+-	ln -fs $(LIBRARY_SO_VER) $(DESTDIR)$(libdir)/$(LIBRARY_SO)
++	$(INSTALL) $(INSTALL_DIR_OPTS) $(LIBRARY_SO_VER) $(DESTDIR)$(bindir)
++	$(INSTALL) $(INSTALL_OPTS_LIB) $(LIBRARY_SO) $(DESTDIR)$(libdir)
+ 
+ ifneq ($(wildcard .depend),)
+ include .depend
