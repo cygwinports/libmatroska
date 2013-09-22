@@ -1,8 +1,16 @@
-DESCRIPTION="Matroska extensible Audio/Video container"
+NAME="libmatroska"
+VERSION=1.0.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Matroska audio/video container library"
+DESCRIPTION="Matroska is an extensible open standard Audio/Video container,
+based on EBML (Extensible Binary Meta Language), a binary derivative of XML.
+Matroska is usually found as .mkv files (matroska video) and .mka files
+(matroska audio)."
 HOMEPAGE="http://www.matroska.org/"
-SRC_URI="http://dl.matroska.org/downloads/${PN}/${P}.tar.bz2"
+SRC_URI="http://dl.matroska.org/downloads/libmatroska/${NAME}-${VERSION}.tar.bz2"
 
-PKG_NAMES="${PN}2 ${PN}-devel"
+PKG_NAMES="${NAME}2 ${NAME}-devel"
 libmatroska2_CONTENTS="usr/bin/*-2.dll usr/share/doc/"
 libmatroska_devel_CONTENTS='usr/include/ usr/lib/'
 

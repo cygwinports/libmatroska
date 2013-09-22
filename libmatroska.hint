@@ -1,6 +1,0 @@
-category: Audio Video
-sdesc: "Matroska audio/video container library (sources)"
-ldesc: "Matroska is an extensible open standard Audio/Video container, 
-based on EBML (Extensible Binary Meta Language), a binary derivative of 
-XML. Matroska is usually found as .mkv files (matroska video) and .mka 
-files (matroska audio)."
