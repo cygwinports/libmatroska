@@ -1,5 +1,5 @@
 NAME="libmatroska"
-VERSION=1.4.1
+VERSION=1.4.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Matroska audio/video container library"
@@ -9,22 +9,8 @@ Matroska is usually found as .mkv files (matroska video) and .mka files
 (matroska audio)."
 HOMEPAGE="http://www.matroska.org/"
 SRC_URI="http://dl.matroska.org/downloads/libmatroska/${NAME}-${VERSION}.tar.bz2"
-PATCH_URI="1.4.1-make-cygwin.patch"
 
 PKG_NAMES="${NAME}6 ${NAME}-devel"
 libmatroska6_CONTENTS="usr/bin/*-6.dll usr/share/doc/"
 libmatroska_devel_REQUIRES="libebml-devel"
 libmatroska_devel_CONTENTS='usr/include/ usr/lib/'
-
-src_compile() {
-	lndirs
-	cd ${B}/make/linux
-	cygmake sharedlib
-}
-
-src_install() {
-	cd ${B}/make/linux
-	cygmake install_headers install_sharedlib prefix=${D}/usr
-
-	dodoc ${S}/LICENSE.LGPL
-}
